@@ -1,54 +1,49 @@
-# OfflineTelegram 📡🔒
+# تلگرام آفلاین (OfflineTelegram) 📡🔒
 
-**Fully offline, end-to-end encrypted messenger** that works without internet, cellular data, or any central server.
+پیام‌رسان **کاملاً آفلاین**، end-to-end رمزنگاری‌شده که بدون اینترنت، دیتا و سرور مرکزی کار می‌کند.
 
-Inspired by Telegram, but completely peer-to-peer over **Wi-Fi Direct + Bluetooth**.
+الهام گرفته از تلگرام، اما کاملاً peer-to-peer روی **Wi-Fi Direct + Bluetooth**.
 
-## Features (Roadmap)
+## زبان برنامه
+کل رابط کاربری به زبان **فارسی** است.
 
-- 🎤 **Push-to-Talk Walkie-Talkie** + high-quality voice messages
-- 💬 Text messages (private chats, groups, channels)
-- 📷 Photo & any file sharing (with progress)
-- 👥 Groups & public Channels (with public IDs like `@channelname`)
-- 🔐 **End-to-End Encryption** (AES-256-GCM + post-quantum hybrid)
-- 🔑 Extremely strong key derivation (Argon2id + high entropy random)
-- ♿ **Full accessibility** for blind users (TalkBack first-class, high contrast, large touch targets, complete semantic labels)
-- 📻 Optional vintage radio-style UI themes (low-fi audio filters)
-- 🌐 Works even when phones are on different Wi-Fi networks (via Wi-Fi Direct)
-- 🔁 Mesh-style discovery & multi-hop when possible
+## قابلیت‌های فعلی (نسخه اسکلت پیشرفته)
 
-## Encryption Philosophy
+### رابط کاربری و دسترسی‌پذیری
+- ۵ تب کامل فارسی: گفتگوها، گروه‌ها، کانال‌ها، واکی‌تاکی، ربات‌ها
+- **دسترسی‌پذیری کامل برای نابینایان**:
+  - contentDescription دقیق برای همه عناصر
+  - Live Region برای اعلام وضعیت اتصال
+  - heading برای ساختار معنایی
+  - توضیحات کامل برای TalkBack
+  - تم با کنتراست بالا
+- نوار وضعیت زنده اتصال و رمزنگاری
 
-- **Symmetric cipher**: AES-256-GCM (hardware accelerated on virtually all modern Android devices)
-- **Key exchange**: X25519 (Curve25519) + planned hybrid with post-quantum ML-KEM (Kyber)
-- **Key derivation**: Argon2id with deliberately high memory and time cost so brute-force is impractical
-- Perfect forward secrecy where the offline topology allows it
-- No server = zero metadata sent to any third party
+### قابلیت‌های طراحی‌شده (هنوز منطق شبکه کامل نشده)
+- گفتگوهای خصوصی رمزنگاری‌شده
+- گروه‌ها با رله مش
+- کانال‌های عمومی با آیدی (@channel)
+- واکی‌تاکی زنده (PTT) + ویس
+- ارسال عکس و فایل
+- ربات‌های محلی (بدون اینترنت)
+- رله مش (پیام از طریق دستگاه‌های واسط)
+- رمزنگاری AES-256-GCM + Argon2id + برنامه برای پست‌کوانتوم
 
-> Current quantum computers cannot break AES-256 or properly implemented X25519. We design the system so that even future large-scale quantum machines will find it extremely expensive to attack.
+## رمزنگاری
+- AES-256-GCM (سخت‌افزاری)
+- تبادل کلید X25519 + هیبرید پست‌کوانتوم (ML-KEM)
+- مشتق کلید Argon2id با هزینه بالا
+- بدون سرور = بدون نشت متادیتا
 
-## Accessibility First
+## بیلد
+فقط از طریق **GitHub Actions**. هیچ نیازی به Android Studio محلی نیست.
 
-This app is built **for blind users from day one**:
+APK در بخش Artifacts هر workflow ظاهر می‌شود.
 
-- Every button, list item, and status has meaningful contentDescription
-- Logical focus order
-- High-contrast themes by default
-- Scalable text (no hard-coded sizes that break TalkBack)
-- Announcements for connection status, encryption state, and message delivery
-
-## Build System
-
-This project builds **exclusively** via GitHub Actions.
-
-No local Android Studio or the broken `android-apk-builder` skill is required.
-
-APKs are published as workflow artifacts and (later) GitHub Releases.
-
-## Status
-
-🚧 Early scaffolding. Core P2P + encryption + accessibility foundation coming next.
+## وضعیت فعلی
+رابط کاربری کامل فارسی + دسترسی‌پذیری قوی آماده است.  
+منطق واقعی شبکه (Nearby Connections)، رمزنگاری runtime، ذخیره پیام و رله هنوز در حال پیاده‌سازی است.
 
 ---
 
-Made for privacy, offline freedom, and maximum fun.
+ساخته شده برای حریم خصوصی، آزادی آفلاین و لذت موج‌بازی.
